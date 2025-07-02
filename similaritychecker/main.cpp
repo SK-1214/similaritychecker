@@ -13,6 +13,37 @@ public:
 	LengthChecker app;
 };
 
+class AlphaFixture : public Test {
+public:
+	void diag(int expected, string input1, string input2) {
+		int ret = app.getResult(input1, input2);
+		EXPECT_EQ(expected, ret);
+	}
+
+	AlphaChecker app;
+};
+
+TEST_F(AlphaFixture, InvalidAlphabet) {
+	diag(0, "Abc", "ABC");
+	diag(0, "Abc", "ABC");
+}
+
+TEST_F(AlphaFixture, AlphabetChecker1) {
+	diag(40, "ABC", "ABC");
+}
+
+TEST_F(AlphaFixture, AlphabetChecker2) {
+	diag(40, "ABC", "CAB");
+}
+
+TEST_F(AlphaFixture, AlphabetChecker3) {
+	diag(20, "ABC", "ABD");
+}
+
+TEST_F(AlphaFixture, AlphabetChecker4) {
+	diag(0, "ABC", "DEF");
+}
+
 TEST_F(LengthFixture, LengthCheck_Same) {
 	diag(60, "ABC", "UEI");
 }
