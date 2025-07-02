@@ -26,9 +26,9 @@ public:
 			return 60;
 		}
 
-		double score = 0;
-		//score = shortest * (shortest - gap);
-		return (score*60);
+		double score = (double) gap/(double)shortest;
+		score = 1 * (1- score)*60;
+		return (int)score;
 		
 	}
 };
