@@ -5,6 +5,31 @@
 using std::string;
 using std::vector;
 
+class AlphaChecker {
+public:
+    int getResult(string input1, string input2) {
+        //CHECK VALIDITY
+        if(false == CheckValidString(input1)) return 0;
+        if(false == CheckValidString(input2)) return 0;
+       
+    }
+
+private:
+    bool CheckValidString(std::string& str)
+    {
+
+        for (char ch : str)
+        {
+            if ((ch < 'A') || (ch > 'Z')) {
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+};
+
 class LengthChecker {
 public:
     int getResult(string input1, string input2) {
