@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "similaritychecker", "similaritychecker\similaritychecker.vcxproj", "{29273280-902B-49C6-8091-202B84E225AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루션 항목", "{5D24E7FA-9229-4606-9136-C8E557030842}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29273280-902B-49C6-8091-202B84E225AC}.Debug|x64.ActiveCfg = Debug|x64
+		{29273280-902B-49C6-8091-202B84E225AC}.Debug|x64.Build.0 = Debug|x64
+		{29273280-902B-49C6-8091-202B84E225AC}.Debug|x86.ActiveCfg = Debug|Win32
+		{29273280-902B-49C6-8091-202B84E225AC}.Debug|x86.Build.0 = Debug|Win32
+		{29273280-902B-49C6-8091-202B84E225AC}.Release|x64.ActiveCfg = Release|x64
+		{29273280-902B-49C6-8091-202B84E225AC}.Release|x64.Build.0 = Release|x64
+		{29273280-902B-49C6-8091-202B84E225AC}.Release|x86.ActiveCfg = Release|Win32
+		{29273280-902B-49C6-8091-202B84E225AC}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF319978-E7AB-44BE-844B-F1BD4A2FC721}
+	EndGlobalSection
+EndGlobal
