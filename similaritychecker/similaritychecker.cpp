@@ -1,34 +1,37 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using std::string;
 using std::vector;
 
-class SimChecker {
+class LengthChecker {
 public:
-	int getLengthSocre(string input1, string input2) {
-		int len1 = input1.length();
-		int len2 = input2.length();
-		int gap=0;
-		int shortest=0;
-	
+    int getResult(string input1, string input2) {
 
-		if (len1 > len2) {
-			gap = len1 - len2;
-			shortest = len2;
-		}
-		else if(len1 < len2){
-			gap = len2 - len1;
-			shortest = len1;
-		}
-		else// len1 == len2
-		{
-			return 60;
-		}
+        int A = std::max(input1.length(), input2.length());
+        int B = std::min(input1.length(), input2.length());
 
-		double score = (double) gap/(double)shortest;
-		score = 1 * (1- score)*60;
-		return (int)score;
-		
-	}
+        if (isSameLength(A, B)) return MAX_LENGTH_POINT;
+        if (isDoubleLength(A, B)) return MIN_LENGTH_POINT;
+        return getPartialLengthPoint(A, B);
+    }
+
+private:
+    int getPartialLengthPoint(int A, int B) {
+        int Gap = A - B;
+        return MAX_LENGTH_POINT - MAX_LENGTH_POINT * Gap / B;
+    }
+
+    bool isSameLength(int A, int B) {
+        return A == B;
+    }
+
+    bool isDoubleLength(int A, int B) {
+        return A >= B * 2;
+    }
+
+    static const int MAX_LENGTH_POINT = 60;
+    static const int MIN_LENGTH_POINT = 0;
+
 };

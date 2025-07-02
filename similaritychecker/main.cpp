@@ -1,43 +1,32 @@
 #include "gmock/gmock.h"
 #include "similaritychecker.cpp"
 
-TEST(TS, LengthCheck_Same) {
-	string input1 = "ABCD";
-	string input2 = "DCBA";
+using namespace testing;
 
-	int score = 0;
+class LengthFixture : public Test {
+public:
+	void diag(int expected, string input1, string input2) {
+		int ret = app.getResult(input1, input2);
+		EXPECT_EQ(expected, ret);
+	}
 
-	SimChecker checker;
+	LengthChecker app;
+};
 
-	score = checker.getLengthSocre(input1, input2);
-
-    EXPECT_EQ(60, score);
+TEST_F(LengthFixture, LengthCheck_Same) {
+	diag(60, "ABC", "UEI");
 }
 
-TEST(TS, LengthCheck_Diff1) {
-	string input1 = "ABCDE";
-	string input2 = "DCBA";
-
-	int score = 0;
-
-	SimChecker checker;
-
-	score = checker.getLengthSocre(input1, input2);
-
-	EXPECT_EQ(45, score);
+TEST_F(LengthFixture, LengthCheck_Diff1) {
+	diag(45, "ABCDE", "ADBD");
 }
 
-TEST(TS, LengthCheck_Diff2) {
-	string input1 = "ABCD";
-	string input2 = "DCBADD";
+TEST_F(LengthFixture, LengthCheck_Diff2) {
+	diag(30, "ABCE", "ADBDDD");
+}
 
-	int score = 0;
-
-	SimChecker checker;
-
-	score = checker.getLengthSocre(input1, input2);
-
-	EXPECT_EQ(30, score);
+TEST_F(LengthFixture, LengthCheck_Diff3) {
+	diag(0, "ABCE", "ABCEABCE");
 }
 
 int main()
